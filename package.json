@@ -1,0 +1,33 @@
+{
+  "name": "abv-spa",
+  "version": "0.0.1",
+  "description": "Abvos web server",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tondy67/abv-spa.git"
+  },
+  "keywords": [
+    "abv",
+    "abvos",
+    "spa",
+    "server"
+  ],
+  "author": {
+    "name": "Todor Angelov",
+    "email": "abv@tondy.com",
+    "url": "http://tondy.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tondy67/abv-spa/issues"
+  },
+  "homepage": "https://github.com/tondy67/abv-spa#readme",
+  "dependencies": {
+    "abv-ts": "0.0.2",
+    "abv-wallet": "0.0.1"
+  }
+}
