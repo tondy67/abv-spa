@@ -1,6 +1,6 @@
 {
   "name": "abv-spa",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Abvos web server",
   "main": "server.js",
   "scripts": {
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/tondy67/abv-spa#readme",
   "dependencies": {
     "abv-ts": "0.0.2",
-    "abv-wallet": "0.0.1"
+    "abv-wallet": "0.0.2",
+    "abv-vfs": "0.0.1"
   }
 }
