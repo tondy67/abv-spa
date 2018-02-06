@@ -29,6 +29,6 @@
   "dependencies": {
     "abv-ts": "0.0.2",
     "abv-wallet": "0.0.2",
-    "abv-vfs": "0.0.1"
+    "abv-vfs": "tondy67/abv-vfs"
   }
 }
