@@ -26,6 +26,21 @@ aspa.on('/time/',(req, res) => {
 		const r = aspa.res(200, req.url, Date.now() + ': ' + req.url);ts.debug(r.size);
 		r.send(res);
 	});
+aspa.on('/action',(req, res) => { 
+	aspa.post(req,res).then(post => {
+		console.log(60,post);
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.end('<!doctype html><html><head><title>post</title></head><body>Thanks for the data!</body></html>');
+	}).catch(err => { 
+		console.log(err);
+		if (err === 413){
+			res.writeHead(413, 'Request Entity Too Large', {'Content-Type': 'text/html'});
+			res.end('<!doctype html><html><head><title>413</title></head><body>413: Request Entity Too Large</body></html>');
+		}else{
+			res.end();
+		}
+	})
+});
 
 aspa.on('/stat/',(req, res) => {
 		aspa.auth('aspa','pass',req,res, () => {
@@ -46,24 +61,8 @@ aspa.on('/stat/',(req, res) => {
 			body += '<span style="color:'+clr[c]+'">' + s + '</span><br>';
 		}
 		const meta = '<meta http-equiv="refresh" content="30">';
-		const r = aspa.res(200, req.url, aspa.page('Stats',body,meta));
-		r.send(res);
+		aspa.send(req, res, 'Stats',body,meta);
 		});
-	});
-
-aspa.on('/logs/',(req, res) => {
-		let body = aspa.link('/','Home') + '<br><br>';
-		body += '<h3>Logs: ' + $logs.length + ' lines</h3>';
-		const clr = ['','','gray','green','red','blue'];
-		let c, s;
-		for (let l of $logs){
-			c = Math.round(l.code/100);
-			s = ' ' + l.host  + ' [' + (new Date(l.time).toUTCString()) + 
-				'] "GET ' + l.url + '" '+ l.code +' ' + l.size;
-			body += '<span style="color:'+clr[c]+'">' + s + '</span><br>';
-		}
-		const r = aspa.res(200, req.url, aspa.page('Logs',body));
-		r.send(res);
 	});
 
 aspa.tpl('/index.html',{ttl: () => {return Date.now();}});
