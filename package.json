@@ -28,6 +28,7 @@
   "homepage": "https://github.com/tondy67/abv-spa#readme",
   "dependencies": {
     "abv-ts": "tondy67/abv-ts",
+    "abv-events": "tondy67/abv-events",
     "abv-wallet": "tondy67/abv-wallet",
     "abv-vfs": "tondy67/abv-vfs"
   }
