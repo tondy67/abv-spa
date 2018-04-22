@@ -1,6 +1,11 @@
 /**
- * Abvos SPA server
+ * Abvos SPA web server
+ * https://github.com/tondy67/abv-spa
  */
 "use strict";
 
-module.exports = require('./lib/WebServer.js');
+const Aspa = require('./lib/Aspa.js');
+
+const aspa = new Aspa();
+
+module.exports = () => { return aspa; };
